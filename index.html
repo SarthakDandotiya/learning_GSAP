@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./css/main.css" />
+		<title>GSAP Tutorial</title>
+	</head>
+	<body>
+		<h1>Engineering For Tommorow</h1>
+		<button id="cta">Watch Here</button>
+
+		<div class="panel">
+			<img id="light" src="./images/bulb.svg" alt="image" />
+			<p>Lorem ipsum dolor sit amet consectetur, iure!</p>
+			<div class="box">
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+				Laudantium voluptate, modi nulla illo omnis excepturi deleniti
+				mollitia adipisci dicta reiciendis necessitatibus beatae
+				praesentium, harum ex non enim blanditiis! Similique, debitis!
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+		<script>
+			document
+				.getElementById("cta")
+				.addEventListener("click", function() {
+					TweenMax.to(".panel", 1.5, {
+						scaleY: 1,
+						height: "100vh",
+						ease: Power4.easeOut
+					});
+					TweenMax.to("#light", 0.75, {
+						opacity: 1,
+						y: 0,
+						delay: 1,
+						ease: Back.easeOut.config(1.7)
+					});
+					TweenMax.to("p", 1, { opacity: 1, y: 20, delay: 1.6 });
+					TweenMax.to(".box", 2.5, {
+						opacity: 1,
+						scale: 1,
+						ease: CustomEase.create(
+							"custom",
+							"M0,0 C0.11,0.494 0.484,0.63 0.61,0.756 0.742,0.888 0.504,1 1,1"
+						)
+					});
+				});
+		</script>
+	</body>
+</html>
